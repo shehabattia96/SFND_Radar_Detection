@@ -182,7 +182,7 @@ end
 % Analyzing results
 % 
 
-if isfile("bestCombinations2.mat")
+if isfile("bestCombinations.mat")
     bestCombinations = load("bestCombinations.mat").bestCombinations;
     numberOfPossibleCombinationsPerOffset = length(cellSizes)^4; % the number of iterations
     [numberOfGoodCombinations, correspondingThresholdOffsets] = groupcounts([bestCombinations.thresholdOffset]');
