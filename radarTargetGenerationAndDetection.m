@@ -182,17 +182,21 @@ end
 % Analyzing results
 % 
 
-bestCombinations = load("bestCombinations.mat").bestCombinations;
-numberOfPossibleCombinationsPerOffset = length(cellSizes)^4; % the number of iterations
-[numberOfGoodCombinations, correspondingThresholdOffsets] = groupcounts([bestCombinations.thresholdOffset]');
+if isfile("bestCombinations2.mat")
+    bestCombinations = load("bestCombinations.mat").bestCombinations;
+    numberOfPossibleCombinationsPerOffset = length(cellSizes)^4; % the number of iterations
+    [numberOfGoodCombinations, correspondingThresholdOffsets] = groupcounts([bestCombinations.thresholdOffset]');
 
-bestCombinationsFigure = figure;
-bar(correspondingThresholdOffsets, numberOfGoodCombinations,'FaceColor',[0 .5 .5],'EdgeColor',[0 .9 .9],'LineWidth',1.5);
-title("Number of good combinations found");
-xlabel("Threshold Offset (dB)");
-ylabel("Number of good combinations found");
-ylim([0 numberOfPossibleCombinationsPerOffset]);
-saveas(bestCombinationsFigure, "./figures/bestCombinationsFigure.png");
+    bestCombinationsFigure = figure;
+    bar(correspondingThresholdOffsets, numberOfGoodCombinations,'FaceColor',[0 .5 .5],'EdgeColor',[0 .9 .9],'LineWidth',1.5);
+    title("Number of good combinations found");
+    xlabel("Threshold Offset (dB)");
+    ylabel("Number of good combinations found");
+    ylim([0 numberOfPossibleCombinationsPerOffset]);
+    saveas(bestCombinationsFigure, "./figures/bestCombinationsFigure.png");
 
-bestCombinationsIndex = 20;
-TwoDimensionalCFAR(RDM, bestCombinations(bestCombinationsIndex).trainingCellSize, bestCombinations(bestCombinationsIndex).guardCellSize, bestCombinations(bestCombinationsIndex).thresholdOffset, true);
+    bestCombinationsIndex = 20;
+    TwoDimensionalCFAR(RDM, bestCombinations(bestCombinationsIndex).trainingCellSize, bestCombinations(bestCombinationsIndex).guardCellSize, bestCombinations(bestCombinationsIndex).thresholdOffset, true);
+else
+    TwoDimensionalCFAR(RDM, [3 6], [3 0], 7, true);
+end
