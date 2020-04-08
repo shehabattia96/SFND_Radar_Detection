@@ -2,7 +2,7 @@
 
 ## Implementing 2D-CFAR
 
-CFAR is similar to a moving average filter, except it creates a dynamic threshold over the data. In the figure below, the points of interest are the peaks and the green flat-ish (but it's not really flat!) surface is the dynamic threshold.
+CFAR is similar to a moving average filter, except it creates a dynamic threshold over the data. In the figure below, the points of interest (object detected by radar) are the purple peaks and the green flat-ish (but it's not really flat!) surface is the dynamic threshold.
 ![Signal after 2D-CFAR filtering](./figures/Signal%20after%202D-CFAR%20filtering.png "Signal after 2D-CFAR filtering")
 
 Originally the Range Doppler Response map looked like this before it was filtered using 2D-CFAR.
