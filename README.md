@@ -28,7 +28,7 @@ We will retain the best combinations in an array. Best combinations will fulfill
   - Setting the cell size too large will average out target points.
   - Setting the cell size too small works for some combinations of hyper-parameters, but not all.
   - Setting the threshold too low will result in a lot of clutter.
-  - Setting the threshold too low will filter everything out.
+  - Setting the threshold too high will filter everything out.
 - Future work
   - Generate more waveforms and see if these conclusions still stand.
 
